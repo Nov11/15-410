@@ -71,3 +71,12 @@ int main()
 /*s6 and s7 is 8 with no surprise s8 is 24 + (1 which aligned to 8) = 32 s9 is 64 + (1 alignd to 8)*/
 /* s10 is aligned to 1 cause char inside it and struct s6 is aligned to 1 as well*/
 /* s11 is aligned to 8 cause s7 is aligned to 8 and char to 1 so take the bigger on s11 is aligned to 8 that result to 16 bytes*/
+/*Aproc1: return x->g;
+	movl 8(%ebp), %eax #ebp is saved ebp  ebp + 4 (32bit machine)is return addr ebp + 8 is the parameter push in stack
+	which is struct s1* , the addr of a struct typed struct s1
+	movl 4(%eax), %eax #here 4(%eax) is the 4th byte in struct s1 which is union u1* b
+	movl 40(%eax), %eax #the 40th byte in union u1 is 40th byte in struct s2, so that is the start addr of g 
+	and %eax store the return value
+*/
+/*Bprco2:same as above this is x->f;*/
+/*Cprct3:x->i*/
